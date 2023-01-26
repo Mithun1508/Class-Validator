@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample7-inheritance-support/Post.ts"],
+  "sourcesContent": ["import { Contains, IsInt, MinLength, MaxLength } from '../../src/decorator/decorators';\nimport { BaseContent } from './BaseContent';\n\nexport class Post extends BaseContent {\n  @MinLength(10)\n  @MaxLength(20)\n  title: string;\n\n  @Contains('hello')\n  text: string;\n\n  @IsInt()\n  rating: number;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAsD;AACtD,yBAA4B;AAErB,MAAM,aAAa,+BAAY;AAUtC;AAPE;AAAA,MAFC,6BAAU,EAAE;AAAA,MACZ,6BAAU,EAAE;AAAA,GAFF,KAGX;AAGA;AAAA,MADC,4BAAS,OAAO;AAAA,GALN,KAMX;AAGA;AAAA,MADC,yBAAM;AAAA,GARI,KASX;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample2-using-groups/Post.ts"],
+  "sourcesContent": ["import { Contains, IsInt, Length, IsEmail, IsFQDN, IsDate } from '../../src/decorator/decorators';\n\nexport class Post {\n  @Length(10, 20, {\n    message: 'Incorrect length!',\n    groups: ['users', 'moderators'],\n  })\n  @Length(0, 20, {\n    message: 'Incorrect length!',\n    groups: ['admins'],\n  })\n  title: string;\n\n  @Contains('hello', {\n    message: 'It should contain word \"hello!\"',\n    groups: ['users', 'moderators'],\n  })\n  text: string;\n\n  @IsInt()\n  rating: number;\n\n  @IsEmail(undefined, {\n    always: true,\n  })\n  email: string;\n\n  @IsFQDN(undefined, {\n    message: 'Site address should be correct',\n    groups: ['users'],\n  })\n  site: string;\n\n  @IsDate()\n  createDate: Date;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAiE;AAE1D,MAAM,KAAK;AAiClB;AAxBE;AAAA,MARC,0BAAO,IAAI,IAAI;AAAA,IACd,SAAS;AAAA,IACT,QAAQ,CAAC,SAAS,YAAY;AAAA,EAChC,CAAC;AAAA,MACA,0BAAO,GAAG,IAAI;AAAA,IACb,SAAS;AAAA,IACT,QAAQ,CAAC,QAAQ;AAAA,EACnB,CAAC;AAAA,GARU,KASX;AAMA;AAAA,MAJC,4BAAS,SAAS;AAAA,IACjB,SAAS;AAAA,IACT,QAAQ,CAAC,SAAS,YAAY;AAAA,EAChC,CAAC;AAAA,GAdU,KAeX;AAGA;AAAA,MADC,yBAAM;AAAA,GAjBI,KAkBX;AAKA;AAAA,MAHC,2BAAQ,QAAW;AAAA,IAClB,QAAQ;AAAA,EACV,CAAC;AAAA,GAtBU,KAuBX;AAMA;AAAA,MAJC,0BAAO,QAAW;AAAA,IACjB,SAAS;AAAA,IACT,QAAQ,CAAC,OAAO;AAAA,EAClB,CAAC;AAAA,GA5BU,KA6BX;AAGA;AAAA,MADC,0BAAO;AAAA,GA/BG,KAgCX;",
+  "names": []
+}

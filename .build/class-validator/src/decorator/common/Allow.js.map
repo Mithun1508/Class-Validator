@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/common/Allow.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { ValidationMetadataArgs } from '../../metadata/ValidationMetadataArgs';\nimport { ValidationTypes } from '../../validation/ValidationTypes';\nimport { ValidationMetadata } from '../../metadata/ValidationMetadata';\nimport { getMetadataStorage } from '../../metadata/MetadataStorage';\n\n/**\n * If object has both allowed and not allowed properties a validation error will be thrown.\n */\nexport function Allow(validationOptions?: ValidationOptions): PropertyDecorator {\n  return function (object: object, propertyName: string): void {\n    const args: ValidationMetadataArgs = {\n      type: ValidationTypes.WHITELIST,\n      target: object.constructor,\n      propertyName: propertyName,\n      validationOptions: validationOptions,\n    };\n    getMetadataStorage().addValidationMetadata(new ValidationMetadata(args));\n  };\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,6BAAgC;AAChC,gCAAmC;AACnC,6BAAmC;AAK5B,SAAS,MAAM,mBAA0D;AAC9E,SAAO,SAAU,QAAgB,cAA4B;AAC3D,UAAM,OAA+B;AAAA,MACnC,MAAM,uCAAgB;AAAA,MACtB,QAAQ,OAAO;AAAA,MACf;AAAA,MACA;AAAA,IACF;AACA,mDAAmB,EAAE,sBAAsB,IAAI,6CAAmB,IAAI,CAAC;AAAA,EACzE;AACF;",
+  "names": []
+}

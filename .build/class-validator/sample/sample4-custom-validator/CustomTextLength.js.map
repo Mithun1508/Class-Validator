@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample4-custom-validator/CustomTextLength.ts"],
+  "sourcesContent": ["import { ValidatorConstraintInterface } from '../../src/validation/ValidatorConstraintInterface';\nimport { ValidatorConstraint } from '../../src/decorator/decorators';\n\n@ValidatorConstraint()\nexport class CustomTextLength implements ValidatorConstraintInterface {\n  validate(text: string) {\n    return text.length > 1 && text.length < 10;\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAoC;AAG7B,IAAM,mBAAN,MAA+D;AAAA,EACpE,SAAS,MAAc;AACrB,WAAO,KAAK,SAAS,KAAK,KAAK,SAAS;AAAA,EAC1C;AACF;AAJa,mBAAN;AAAA,MADN,uCAAoB;AAAA,GACR;",
+  "names": []
+}

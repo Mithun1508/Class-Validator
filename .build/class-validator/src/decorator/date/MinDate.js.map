@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/date/MinDate.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const MIN_DATE = 'minDate';\n\n/**\n * Checks if the value is a date that's after the specified date.\n */\nexport function minDate(date: unknown, minDate: Date): boolean {\n  return date instanceof Date && date.getTime() >= minDate.getTime();\n}\n\n/**\n * Checks if the value is a date that's after the specified date.\n */\nexport function MinDate(date: Date, validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: MIN_DATE,\n      constraints: [date],\n      validator: {\n        validate: (value, args): boolean => minDate(value, args.constraints[0]),\n        defaultMessage: buildMessage(\n          eachPrefix => 'minimal allowed date for ' + eachPrefix + '$property is $constraint1',\n          validationOptions\n        ),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,WAAW;AAKjB,SAAS,QAAQ,MAAeA,UAAwB;AAC7D,SAAO,gBAAgB,QAAQ,KAAK,QAAQ,KAAKA,SAAQ,QAAQ;AACnE;AAKO,SAAS,QAAQ,MAAY,mBAA0D;AAC5F,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,aAAa,CAAC,IAAI;AAAA,MAClB,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,QAAQ,OAAO,KAAK,YAAY,EAAE;AAAA,QACtE,oBAAgB;AAAA,UACd,gBAAc,8BAA8B,aAAa;AAAA,UACzD;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["minDate"]
+}

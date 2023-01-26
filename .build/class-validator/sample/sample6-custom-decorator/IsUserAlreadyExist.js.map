@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample6-custom-decorator/IsUserAlreadyExist.ts"],
+  "sourcesContent": ["import { registerDecorator } from '../../src/index';\nimport { ValidationOptions } from '../../src/decorator/ValidationOptions';\nimport { ValidationArguments } from '../../src/validation/ValidationArguments';\n\nexport function IsUserAlreadyExist(validationOptions?: ValidationOptions) {\n  return function (object: Object, propertyName: string) {\n    registerDecorator({\n      name: 'isUserAlreadyExist',\n      async: true,\n      target: object.constructor,\n      propertyName: propertyName,\n      options: validationOptions,\n      validator: {\n        validate(value: any, args: ValidationArguments) {\n          return new Promise(ok => {\n            if (value !== 'admin' && value !== 'user') {\n              ok(true);\n            } else {\n              ok(false);\n            }\n          });\n        },\n      },\n    });\n  };\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,iBAAkC;AAI3B,SAAS,mBAAmB,mBAAuC;AACxE,SAAO,SAAU,QAAgB,cAAsB;AACrD,sCAAkB;AAAA,MAChB,MAAM;AAAA,MACN,OAAO;AAAA,MACP,QAAQ,OAAO;AAAA,MACf;AAAA,MACA,SAAS;AAAA,MACT,WAAW;AAAA,QACT,SAAS,OAAY,MAA2B;AAC9C,iBAAO,IAAI,QAAQ,QAAM;AACvB,gBAAI,UAAU,WAAW,UAAU,QAAQ;AACzC,iBAAG,IAAI;AAAA,YACT,OAAO;AACL,iBAAG,KAAK;AAAA,YACV;AAAA,UACF,CAAC;AAAA,QACH;AAAA,MACF;AAAA,IACF,CAAC;AAAA,EACH;AACF;",
+  "names": []
+}

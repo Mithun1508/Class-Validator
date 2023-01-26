@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample6-custom-decorator/User.ts"],
+  "sourcesContent": ["import { IsUserAlreadyExist } from './IsUserAlreadyExist';\nimport { IsLongerThan } from './IsLongerThan';\n\nexport class User {\n  @IsUserAlreadyExist({\n    message: 'User with name $value already exists',\n  })\n  firstName: string;\n\n  @IsLongerThan('firstName', {\n    message: \"User's last name must be longer than firstName\",\n  })\n  lastName: string;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,gCAAmC;AACnC,0BAA6B;AAEtB,MAAM,KAAK;AAUlB;AANE;AAAA,MAHC,8CAAmB;AAAA,IAClB,SAAS;AAAA,EACX,CAAC;AAAA,GAHU,KAIX;AAKA;AAAA,MAHC,kCAAa,aAAa;AAAA,IACzB,SAAS;AAAA,EACX,CAAC;AAAA,GARU,KASX;",
+  "names": []
+}

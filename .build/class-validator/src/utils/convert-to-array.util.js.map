@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/src/utils/convert-to-array.util.ts"],
+  "sourcesContent": ["/**\n * Convert Map, Set to Array\n */\nexport function convertToArray<T>(val: Array<T> | Set<T> | Map<any, T>): Array<T> {\n  if (val instanceof Map) {\n    return Array.from(val.values());\n  }\n  return Array.isArray(val) ? val : Array.from(val);\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,SAAS,eAAkB,KAAgD;AAChF,MAAI,eAAe,KAAK;AACtB,WAAO,MAAM,KAAK,IAAI,OAAO,CAAC;AAAA,EAChC;AACA,SAAO,MAAM,QAAQ,GAAG,IAAI,MAAM,MAAM,KAAK,GAAG;AAClD;",
+  "names": []
+}

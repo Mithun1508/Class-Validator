@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/string/IsBase32.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\nimport isBase32Validator from 'validator/lib/isBase32';\n\nexport const IS_BASE32 = 'isBase32';\n\n/**\n * Checks if a string is base32 encoded.\n * If given value is not a string, then it returns false.\n */\nexport function isBase32(value: unknown): boolean {\n  return typeof value === 'string' && isBase32Validator(value);\n}\n\n/**\n * Check if a string is base32 encoded.\n * If given value is not a string, then it returns false.\n */\nexport function IsBase32(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_BASE32,\n      validator: {\n        validate: (value, args): boolean => isBase32(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be base32 encoded', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,sBAA8B;AAEvB,MAAM,YAAY;AAMlB,SAAS,SAAS,OAAyB;AAChD,SAAO,OAAO,UAAU,gBAAY,gBAAAA,SAAkB,KAAK;AAC7D;AAMO,SAAS,SAAS,mBAA0D;AACjF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,SAAS,KAAK;AAAA,QAClD,oBAAgB,gCAAa,gBAAc,aAAa,oCAAoC,iBAAiB;AAAA,MAC/G;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["isBase32Validator"]
+}

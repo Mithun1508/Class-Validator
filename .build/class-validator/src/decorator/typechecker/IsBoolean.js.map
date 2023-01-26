@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/typechecker/IsBoolean.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_BOOLEAN = 'isBoolean';\n\n/**\n * Checks if a given value is a boolean.\n */\nexport function isBoolean(value: unknown): boolean {\n  return value instanceof Boolean || typeof value === 'boolean';\n}\n\n/**\n * Checks if a value is a boolean.\n */\nexport function IsBoolean(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_BOOLEAN,\n      validator: {\n        validate: (value, args): boolean => isBoolean(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be a boolean value', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,aAAa;AAKnB,SAAS,UAAU,OAAyB;AACjD,SAAO,iBAAiB,WAAW,OAAO,UAAU;AACtD;AAKO,SAAS,UAAU,mBAA0D;AAClF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,UAAU,KAAK;AAAA,QACnD,oBAAgB,gCAAa,gBAAc,aAAa,qCAAqC,iBAAiB;AAAA,MAChH;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

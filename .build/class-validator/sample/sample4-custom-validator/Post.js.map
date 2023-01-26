@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample4-custom-validator/Post.ts"],
+  "sourcesContent": ["import {\n  Contains,\n  IsInt,\n  MinLength,\n  MaxLength,\n  IsEmail,\n  IsFQDN,\n  IsDate,\n  IsNotEmpty,\n  ArrayNotEmpty,\n  ArrayMinSize,\n  ArrayMaxSize,\n} from '../../src/decorator/decorators';\nimport { Validate } from '../../src/decorator/decorators';\nimport { CustomTextLength } from './CustomTextLength';\n\nexport class Post {\n  @Validate(CustomTextLength, {\n    message: 'Wrong post title',\n  })\n  title: string;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAaA,IAAAA,qBAAyB;AACzB,8BAAiC;AAE1B,MAAM,KAAK;AAKlB;AADE;AAAA,MAHC,6BAAS,0CAAkB;AAAA,IAC1B,SAAS;AAAA,EACX,CAAC;AAAA,GAHU,KAIX;",
+  "names": ["import_decorators"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/typechecker/IsArray.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_ARRAY = 'isArray';\n\n/**\n * Checks if a given value is an array\n */\nexport function isArray(value: unknown): boolean {\n  return value instanceof Array;\n}\n\n/**\n * Checks if a given value is an array\n */\nexport function IsArray(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_ARRAY,\n      validator: {\n        validate: (value, args): boolean => isArray(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be an array', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,WAAW;AAKjB,SAAS,QAAQ,OAAyB;AAC/C,SAAO,iBAAiB;AAC1B;AAKO,SAAS,QAAQ,mBAA0D;AAChF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,QAAQ,KAAK;AAAA,QACjD,oBAAgB,gCAAa,gBAAc,aAAa,8BAA8B,iBAAiB;AAAA,MACzG;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

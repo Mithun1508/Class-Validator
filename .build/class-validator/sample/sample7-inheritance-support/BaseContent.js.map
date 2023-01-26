@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample7-inheritance-support/BaseContent.ts"],
+  "sourcesContent": ["import { IsEmail } from '../../src/decorator/decorators';\n\nexport class BaseContent {\n  @IsEmail()\n  email: string;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAwB;AAEjB,MAAM,YAAY;AAGzB;AADE;AAAA,MADC,2BAAQ;AAAA,GADE,YAEX;",
+  "names": []
+}

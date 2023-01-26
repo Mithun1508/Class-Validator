@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/common/IsLongitude.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from './ValidateBy';\nimport { isLatLong } from './IsLatLong';\n\nexport const IS_LONGITUDE = 'isLongitude';\n\n/**\n * Checks if a given value is a longitude.\n */\nexport function isLongitude(value: string): boolean {\n  return (typeof value === 'number' || typeof value === 'string') && isLatLong(`0,${value}`);\n}\n\n/**\n * Checks if a given value is a longitude.\n */\nexport function IsLongitude(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_LONGITUDE,\n      validator: {\n        validate: (value, args): boolean => isLongitude(value),\n        defaultMessage: buildMessage(\n          eachPrefix => eachPrefix + '$property must be a longitude string or number',\n          validationOptions\n        ),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,uBAA0B;AAEnB,MAAM,eAAe;AAKrB,SAAS,YAAY,OAAwB;AAClD,UAAQ,OAAO,UAAU,YAAY,OAAO,UAAU,iBAAa,4BAAU,KAAK,OAAO;AAC3F;AAKO,SAAS,YAAY,mBAA0D;AACpF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,YAAY,KAAK;AAAA,QACrD,oBAAgB;AAAA,UACd,gBAAc,aAAa;AAAA,UAC3B;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../class-validator/jest.config.js"],
+  "sourcesContent": ["module.exports = {\r\n  preset: 'ts-jest',\r\n  testEnvironment: 'node',\r\n  collectCoverageFrom: ['src/**/*.ts', '!src/**/index.ts', '!src/**/*.interface.ts'],\r\n  globals: {\r\n    'ts-jest': {\r\n      tsConfig: 'tsconfig.spec.json',\r\n    },\r\n  },\r\n};\r\n"],
+  "mappings": ";AAAA,OAAO,UAAU;AAAA,EACf,QAAQ;AAAA,EACR,iBAAiB;AAAA,EACjB,qBAAqB,CAAC,eAAe,oBAAoB,wBAAwB;AAAA,EACjF,SAAS;AAAA,IACP,WAAW;AAAA,MACT,UAAU;AAAA,IACZ;AAAA,EACF;AACF;",
+  "names": []
+}

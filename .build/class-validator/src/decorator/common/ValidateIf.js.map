@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/common/ValidateIf.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { ValidationMetadataArgs } from '../../metadata/ValidationMetadataArgs';\nimport { ValidationTypes } from '../../validation/ValidationTypes';\nimport { ValidationMetadata } from '../../metadata/ValidationMetadata';\nimport { getMetadataStorage } from '../../metadata/MetadataStorage';\n\n/**\n * Ignores the other validators on a property when the provided condition function returns false.\n */\nexport function ValidateIf(\n  condition: (object: any, value: any) => boolean,\n  validationOptions?: ValidationOptions\n): PropertyDecorator {\n  return function (object: object, propertyName: string): void {\n    const args: ValidationMetadataArgs = {\n      type: ValidationTypes.CONDITIONAL_VALIDATION,\n      target: object.constructor,\n      propertyName: propertyName,\n      constraints: [condition],\n      validationOptions: validationOptions,\n    };\n    getMetadataStorage().addValidationMetadata(new ValidationMetadata(args));\n  };\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,6BAAgC;AAChC,gCAAmC;AACnC,6BAAmC;AAK5B,SAAS,WACd,WACA,mBACmB;AACnB,SAAO,SAAU,QAAgB,cAA4B;AAC3D,UAAM,OAA+B;AAAA,MACnC,MAAM,uCAAgB;AAAA,MACtB,QAAQ,OAAO;AAAA,MACf;AAAA,MACA,aAAa,CAAC,SAAS;AAAA,MACvB;AAAA,IACF;AACA,mDAAmB,EAAE,sBAAsB,IAAI,6CAAmB,IAAI,CAAC;AAAA,EACzE;AACF;",
+  "names": []
+}

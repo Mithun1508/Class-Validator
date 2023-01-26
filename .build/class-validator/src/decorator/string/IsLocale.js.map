@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/string/IsLocale.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\nimport isLocaleValidator from 'validator/lib/isLocale';\n\nexport const IS_LOCALE = 'isLocale';\n\n/**\n * Check if the string is a locale.\n * If given value is not a string, then it returns false.\n */\nexport function isLocale(value: unknown): boolean {\n  return typeof value === 'string' && isLocaleValidator(value);\n}\n\n/**\n * Check if the string is a locale.\n * If given value is not a string, then it returns false.\n */\nexport function IsLocale(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_LOCALE,\n      validator: {\n        validate: (value, args): boolean => isLocale(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be locale', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,sBAA8B;AAEvB,MAAM,YAAY;AAMlB,SAAS,SAAS,OAAyB;AAChD,SAAO,OAAO,UAAU,gBAAY,gBAAAA,SAAkB,KAAK;AAC7D;AAMO,SAAS,SAAS,mBAA0D;AACjF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,SAAS,KAAK;AAAA,QAClD,oBAAgB,gCAAa,gBAAc,aAAa,4BAA4B,iBAAiB;AAAA,MACvG;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["isLocaleValidator"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/typechecker/IsEnum.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_ENUM = 'isEnum';\n\n/**\n * Checks if a given value is an enum\n */\nexport function isEnum(value: unknown, entity: any): boolean {\n  const enumValues = Object.keys(entity).map(k => entity[k]);\n  return enumValues.indexOf(value) >= 0;\n}\n\n/**\n * Checks if a given value is an enum\n */\nexport function IsEnum(entity: object, validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_ENUM,\n      constraints: [entity],\n      validator: {\n        validate: (value, args): boolean => isEnum(value, args.constraints[0]),\n        defaultMessage: buildMessage(\n          eachPrefix => eachPrefix + '$property must be a valid enum value',\n          validationOptions\n        ),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,UAAU;AAKhB,SAAS,OAAO,OAAgB,QAAsB;AAC3D,QAAM,aAAa,OAAO,KAAK,MAAM,EAAE,IAAI,OAAK,OAAO,EAAE;AACzD,SAAO,WAAW,QAAQ,KAAK,KAAK;AACtC;AAKO,SAAS,OAAO,QAAgB,mBAA0D;AAC/F,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,aAAa,CAAC,MAAM;AAAA,MACpB,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,OAAO,OAAO,KAAK,YAAY,EAAE;AAAA,QACrE,oBAAgB;AAAA,UACd,gBAAc,aAAa;AAAA,UAC3B;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

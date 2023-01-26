@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample5-schemas/Post.ts"],
+  "sourcesContent": ["export class Post {\n  title: string;\n  text: string;\n  rating: number;\n  email: string;\n  site: string;\n  createDate: Date;\n  tags: string[];\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,MAAM,KAAK;AAQlB;",
+  "names": []
+}

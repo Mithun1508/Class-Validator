@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/array/ArrayNotEmpty.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const ARRAY_NOT_EMPTY = 'arrayNotEmpty';\n\n/**\n * Checks if given array is not empty.\n * If null or undefined is given then this function returns false.\n */\nexport function arrayNotEmpty(array: unknown): boolean {\n  return array instanceof Array && array.length > 0;\n}\n\n/**\n * Checks if given array is not empty.\n * If null or undefined is given then this function returns false.\n */\nexport function ArrayNotEmpty(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: ARRAY_NOT_EMPTY,\n      validator: {\n        validate: (value, args): boolean => arrayNotEmpty(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property should not be empty', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,kBAAkB;AAMxB,SAAS,cAAc,OAAyB;AACrD,SAAO,iBAAiB,SAAS,MAAM,SAAS;AAClD;AAMO,SAAS,cAAc,mBAA0D;AACtF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,cAAc,KAAK;AAAA,QACvD,oBAAgB,gCAAa,gBAAc,aAAa,iCAAiC,iBAAiB;AAAA,MAC5G;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

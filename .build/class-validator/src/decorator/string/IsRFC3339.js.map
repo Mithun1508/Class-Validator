@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/string/IsRFC3339.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\nimport isRFC3339Validator from 'validator/lib/isRFC3339';\n\nexport const IS_RFC_3339 = 'isRFC3339';\n\n/**\n * Check if the string is a valid RFC 3339 date.\n * If given value is not a string, then it returns false.\n */\nexport function isRFC3339(value: unknown): boolean {\n  return typeof value === 'string' && isRFC3339Validator(value);\n}\n\n/**\n * Check if the string is a valid RFC 3339 date.\n * If given value is not a string, then it returns false.\n */\nexport function IsRFC3339(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_RFC_3339,\n      validator: {\n        validate: (value, args): boolean => isRFC3339(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be RFC 3339 date', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,uBAA+B;AAExB,MAAM,cAAc;AAMpB,SAAS,UAAU,OAAyB;AACjD,SAAO,OAAO,UAAU,gBAAY,iBAAAA,SAAmB,KAAK;AAC9D;AAMO,SAAS,UAAU,mBAA0D;AAClF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,UAAU,KAAK;AAAA,QACnD,oBAAgB,gCAAa,gBAAc,aAAa,mCAAmC,iBAAiB;AAAA,MAC9G;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["isRFC3339Validator"]
+}

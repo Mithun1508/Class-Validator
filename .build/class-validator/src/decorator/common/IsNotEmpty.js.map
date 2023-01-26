@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/common/IsNotEmpty.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_NOT_EMPTY = 'isNotEmpty';\n\n/**\n * Checks if given value is not empty (!== '', !== null, !== undefined).\n */\nexport function isNotEmpty(value: unknown): boolean {\n  return value !== '' && value !== null && value !== undefined;\n}\n\n/**\n * Checks if given value is not empty (!== '', !== null, !== undefined).\n */\nexport function IsNotEmpty(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_NOT_EMPTY,\n      validator: {\n        validate: (value, args): boolean => isNotEmpty(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property should not be empty', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,eAAe;AAKrB,SAAS,WAAW,OAAyB;AAClD,SAAO,UAAU,MAAM,UAAU,QAAQ,UAAU;AACrD;AAKO,SAAS,WAAW,mBAA0D;AACnF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,WAAW,KAAK;AAAA,QACpD,oBAAgB,gCAAa,gBAAc,aAAa,iCAAiC,iBAAiB;AAAA,MAC5G;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

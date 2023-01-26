@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/typechecker/IsObject.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_OBJECT = 'isObject';\n\n/**\n * Checks if the value is valid Object.\n * Returns false if the value is not an object.\n */\nexport function isObject(value: unknown): value is object {\n  return value != null && (typeof value === 'object' || typeof value === 'function') && !Array.isArray(value);\n}\n\n/**\n * Checks if the value is valid Object.\n * Returns false if the value is not an object.\n */\nexport function IsObject(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_OBJECT,\n      validator: {\n        validate: (value, args): boolean => isObject(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be an object', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,YAAY;AAMlB,SAAS,SAAS,OAAiC;AACxD,SAAO,SAAS,SAAS,OAAO,UAAU,YAAY,OAAO,UAAU,eAAe,CAAC,MAAM,QAAQ,KAAK;AAC5G;AAMO,SAAS,SAAS,mBAA0D;AACjF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,SAAS,KAAK;AAAA,QAClD,oBAAgB,gCAAa,gBAAc,aAAa,+BAA+B,iBAAiB;AAAA,MAC1G;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

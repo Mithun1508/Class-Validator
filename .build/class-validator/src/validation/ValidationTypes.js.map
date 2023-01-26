@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/src/validation/ValidationTypes.ts"],
+  "sourcesContent": ["/**\n * Validation types.\n */\nexport class ValidationTypes {\n  /* system */\n  static CUSTOM_VALIDATION = 'customValidation'; // done\n  static NESTED_VALIDATION = 'nestedValidation'; // done\n  static PROMISE_VALIDATION = 'promiseValidation'; // done\n  static CONDITIONAL_VALIDATION = 'conditionalValidation'; // done\n  static WHITELIST = 'whitelistValidation'; // done\n  static IS_DEFINED = 'isDefined'; // done\n\n  /**\n   * Checks if validation type is valid.\n   */\n  static isValid(type: string): boolean {\n    return (\n      type !== 'isValid' &&\n      type !== 'getMessage' &&\n      Object.keys(this)\n        .map(key => (this as any)[key])\n        .indexOf(type) !== -1\n    );\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,MAAM,gBAAgB;AAAA,EAY3B,OAAO,QAAQ,MAAuB;AACpC,WACE,SAAS,aACT,SAAS,gBACT,OAAO,KAAK,IAAI,EACb,IAAI,SAAQ,KAAa,IAAI,EAC7B,QAAQ,IAAI,MAAM;AAAA,EAEzB;AACF;AArBa,gBAEJ,oBAAoB;AAFhB,gBAGJ,oBAAoB;AAHhB,gBAIJ,qBAAqB;AAJjB,gBAKJ,yBAAyB;AALrB,gBAMJ,YAAY;AANR,gBAOJ,aAAa;",
+  "names": []
+}

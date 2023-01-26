@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample3-nested-objects/Tag.ts"],
+  "sourcesContent": ["import { Contains, IsInt, Length, IsEmail, IsFQDN, IsDate } from '../../src/decorator/decorators';\n\nexport class Tag {\n  @Length(10, 20, {\n    message: 'Tag is too short or long',\n  })\n  name: string;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAiE;AAE1D,MAAM,IAAI;AAKjB;AADE;AAAA,MAHC,0BAAO,IAAI,IAAI;AAAA,IACd,SAAS;AAAA,EACX,CAAC;AAAA,GAHU,IAIX;",
+  "names": []
+}

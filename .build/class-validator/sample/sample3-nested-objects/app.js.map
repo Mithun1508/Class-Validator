@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample3-nested-objects/app.ts"],
+  "sourcesContent": ["import { Validator } from '../../src/validation/Validator';\nimport { Post } from './Post';\nimport { Tag } from './Tag';\n\nlet validator = new Validator();\n\nlet tag1 = new Tag();\ntag1.name = 'ja';\n\nlet tag2 = new Tag();\ntag2.name = 'node.js';\n\nlet post1 = new Post();\npost1.title = 'Hello world';\npost1.tags = [tag1, tag2];\n\nvalidator.validate(post1).then(result => {\n  console.log('1. should not pass: ', result);\n});\n"],
+  "mappings": ";AAAA,uBAA0B;AAC1B,kBAAqB;AACrB,iBAAoB;AAEpB,IAAI,YAAY,IAAI,2BAAU;AAE9B,IAAI,OAAO,IAAI,eAAI;AACnB,KAAK,OAAO;AAEZ,IAAI,OAAO,IAAI,eAAI;AACnB,KAAK,OAAO;AAEZ,IAAI,QAAQ,IAAI,iBAAK;AACrB,MAAM,QAAQ;AACd,MAAM,OAAO,CAAC,MAAM,IAAI;AAExB,UAAU,SAAS,KAAK,EAAE,KAAK,YAAU;AACvC,UAAQ,IAAI,wBAAwB,MAAM;AAC5C,CAAC;",
+  "names": []
+}

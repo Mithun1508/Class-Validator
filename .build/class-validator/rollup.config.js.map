@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../class-validator/rollup.config.js"],
+  "sourcesContent": ["import { nodeResolve } from '@rollup/plugin-node-resolve';\nimport commonjs from '@rollup/plugin-commonjs';\nimport { terser } from 'rollup-plugin-terser';\n\nexport default {\n  input: 'build/esm5/index.js',\n  output: [\n    {\n      name: 'ClassValidator',\n      format: 'umd',\n      file: 'build/bundles/class-validator.umd.js',\n      sourcemap: true,\n    },\n    {\n      name: 'ClassValidator',\n      format: 'umd',\n      file: 'build/bundles/class-validator.umd.min.js',\n      sourcemap: true,\n      plugins: [terser()],\n    },\n  ],\n  plugins: [commonjs(), nodeResolve()],\n};\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,iCAA4B;AAC5B,6BAAqB;AACrB,kCAAuB;AAEvB,IAAO,wBAAQ;AAAA,EACb,OAAO;AAAA,EACP,QAAQ;AAAA,IACN;AAAA,MACE,MAAM;AAAA,MACN,QAAQ;AAAA,MACR,MAAM;AAAA,MACN,WAAW;AAAA,IACb;AAAA,IACA;AAAA,MACE,MAAM;AAAA,MACN,QAAQ;AAAA,MACR,MAAM;AAAA,MACN,WAAW;AAAA,MACX,SAAS,KAAC,oCAAO,CAAC;AAAA,IACpB;AAAA,EACF;AAAA,EACA,SAAS,KAAC,uBAAAA,SAAS,OAAG,wCAAY,CAAC;AACrC;",
+  "names": ["commonjs"]
+}

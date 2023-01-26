@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/string/IsISRC.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\nimport isISRCValidator from 'validator/lib/isISRC';\n\nexport const IS_ISRC = 'isISRC';\n\n/**\n * Check if the string is a ISRC.\n * If given value is not a string, then it returns false.\n */\nexport function isISRC(value: unknown): boolean {\n  return typeof value === 'string' && isISRCValidator(value);\n}\n\n/**\n * Check if the string is a ISRC.\n * If given value is not a string, then it returns false.\n */\nexport function IsISRC(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_ISRC,\n      validator: {\n        validate: (value, args): boolean => isISRC(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be an ISRC', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,oBAA4B;AAErB,MAAM,UAAU;AAMhB,SAAS,OAAO,OAAyB;AAC9C,SAAO,OAAO,UAAU,gBAAY,cAAAA,SAAgB,KAAK;AAC3D;AAMO,SAAS,OAAO,mBAA0D;AAC/E,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,OAAO,KAAK;AAAA,QAChD,oBAAgB,gCAAa,gBAAc,aAAa,6BAA6B,iBAAiB;AAAA,MACxG;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["isISRCValidator"]
+}

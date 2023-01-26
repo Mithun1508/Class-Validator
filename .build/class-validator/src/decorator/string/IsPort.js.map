@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/string/IsPort.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\nimport isPortValidator from 'validator/lib/isPort';\n\nexport const IS_PORT = 'isPort';\n\n/**\n * Check if the string is a valid port number.\n */\nexport function isPort(value: unknown): boolean {\n  return typeof value === 'string' && isPortValidator(value);\n}\n\n/**\n * Check if the string is a valid port number.\n */\nexport function IsPort(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_PORT,\n      validator: {\n        validate: (value, args): boolean => isPort(value),\n        defaultMessage: buildMessage(eachPrefix => eachPrefix + '$property must be a port', validationOptions),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AACzC,oBAA4B;AAErB,MAAM,UAAU;AAKhB,SAAS,OAAO,OAAyB;AAC9C,SAAO,OAAO,UAAU,gBAAY,cAAAA,SAAgB,KAAK;AAC3D;AAKO,SAAS,OAAO,mBAA0D;AAC/E,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,OAAO,KAAK;AAAA,QAChD,oBAAgB,gCAAa,gBAAc,aAAa,4BAA4B,iBAAiB;AAAA,MACvG;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["isPortValidator"]
+}

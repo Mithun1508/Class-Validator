@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/number/Min.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const MIN = 'min';\n\n/**\n * Checks if the first number is greater than or equal to the second.\n */\nexport function min(num: unknown, min: number): boolean {\n  return typeof num === 'number' && typeof min === 'number' && num >= min;\n}\n\n/**\n * Checks if the first number is greater than or equal to the second.\n */\nexport function Min(minValue: number, validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: MIN,\n      constraints: [minValue],\n      validator: {\n        validate: (value, args): boolean => min(value, args.constraints[0]),\n        defaultMessage: buildMessage(\n          eachPrefix => eachPrefix + '$property must not be less than $constraint1',\n          validationOptions\n        ),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,MAAM;AAKZ,SAAS,IAAI,KAAcA,MAAsB;AACtD,SAAO,OAAO,QAAQ,YAAY,OAAOA,SAAQ,YAAY,OAAOA;AACtE;AAKO,SAAS,IAAI,UAAkB,mBAA0D;AAC9F,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,aAAa,CAAC,QAAQ;AAAA,MACtB,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,IAAI,OAAO,KAAK,YAAY,EAAE;AAAA,QAClE,oBAAgB;AAAA,UACd,gBAAc,aAAa;AAAA,UAC3B;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": ["min"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample4-custom-validator/app.ts"],
+  "sourcesContent": ["import { Validator } from '../../src/validation/Validator';\nimport { Post } from './Post';\n\nlet validator = new Validator();\n\nlet post1 = new Post();\npost1.title = 'Hello world';\n\nvalidator.validate(post1).then(result => {\n  console.log('1. should not pass: ', result);\n});\n\nlet post2 = new Post();\npost2.title = 'Hello !!!';\n\nvalidator.validate(post2).then(result => {\n  console.log('2. should pass: ', result);\n});\n"],
+  "mappings": ";AAAA,uBAA0B;AAC1B,kBAAqB;AAErB,IAAI,YAAY,IAAI,2BAAU;AAE9B,IAAI,QAAQ,IAAI,iBAAK;AACrB,MAAM,QAAQ;AAEd,UAAU,SAAS,KAAK,EAAE,KAAK,YAAU;AACvC,UAAQ,IAAI,wBAAwB,MAAM;AAC5C,CAAC;AAED,IAAI,QAAQ,IAAI,iBAAK;AACrB,MAAM,QAAQ;AAEd,UAAU,SAAS,KAAK,EAAE,KAAK,YAAU;AACvC,UAAQ,IAAI,oBAAoB,MAAM;AACxC,CAAC;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample7-inheritance-support/app.ts"],
+  "sourcesContent": ["import { validate } from '../../src/index';\nimport { Post } from './Post';\n\n// Sample1. simple validation\n\nlet post1 = new Post();\npost1.title = 'Hello world'; // should pass\npost1.text = 'this is a great post about hello world'; // should pass\npost1.rating = 10; // should pass\npost1.email = '@google.com'; // should not pass\n\nvalidate(post1).then(result => {\n  console.log('1. should not pass: ', result); // should not pass completely\n});\n"],
+  "mappings": ";AAAA,iBAAyB;AACzB,kBAAqB;AAIrB,IAAI,QAAQ,IAAI,iBAAK;AACrB,MAAM,QAAQ;AACd,MAAM,OAAO;AACb,MAAM,SAAS;AACf,MAAM,QAAQ;AAAA,IAEd,qBAAS,KAAK,EAAE,KAAK,YAAU;AAC7B,UAAQ,IAAI,wBAAwB,MAAM;AAC5C,CAAC;",
+  "names": []
+}

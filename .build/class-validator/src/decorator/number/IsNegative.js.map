@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../class-validator/src/decorator/number/IsNegative.ts"],
+  "sourcesContent": ["import { ValidationOptions } from '../ValidationOptions';\nimport { buildMessage, ValidateBy } from '../common/ValidateBy';\n\nexport const IS_NEGATIVE = 'isNegative';\n\n/**\n * Checks if the value is a negative number smaller than zero.\n */\nexport function isNegative(value: unknown): boolean {\n  return typeof value === 'number' && value < 0;\n}\n\n/**\n * Checks if the value is a negative number smaller than zero.\n */\nexport function IsNegative(validationOptions?: ValidationOptions): PropertyDecorator {\n  return ValidateBy(\n    {\n      name: IS_NEGATIVE,\n      validator: {\n        validate: (value, args): boolean => isNegative(value),\n        defaultMessage: buildMessage(\n          eachPrefix => eachPrefix + '$property must be a negative number',\n          validationOptions\n        ),\n      },\n    },\n    validationOptions\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,wBAAyC;AAElC,MAAM,cAAc;AAKpB,SAAS,WAAW,OAAyB;AAClD,SAAO,OAAO,UAAU,YAAY,QAAQ;AAC9C;AAKO,SAAS,WAAW,mBAA0D;AACnF,aAAO;AAAA,IACL;AAAA,MACE,MAAM;AAAA,MACN,WAAW;AAAA,QACT,UAAU,CAAC,OAAO,SAAkB,WAAW,KAAK;AAAA,QACpD,oBAAgB;AAAA,UACd,gBAAc,aAAa;AAAA,UAC3B;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA;AAAA,EACF;AACF;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../class-validator/sample/sample8-es6-maps/Post.ts"],
+  "sourcesContent": ["import { Contains, IsInt, Length, IsEmail, IsFQDN, IsDate, ValidateNested } from '../../src/decorator/decorators';\nimport { Tag } from './Tag';\n\nexport class Post {\n  @Length(10, 20, {\n    message: 'Incorrect length!',\n  })\n  title: string;\n\n  @ValidateNested()\n  tags: Map<string, Tag>;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAiF;AAG1E,MAAM,KAAK;AAQlB;AAJE;AAAA,MAHC,0BAAO,IAAI,IAAI;AAAA,IACd,SAAS;AAAA,EACX,CAAC;AAAA,GAHU,KAIX;AAGA;AAAA,MADC,kCAAe;AAAA,GANL,KAOX;",
+  "names": []
+}
