@@ -111,6 +111,77 @@ let validator = Container.get(Validator);
 Synchronous validation
 If you want to perform a simple non async validation you can use validateSync method instead of regular validate method. It has the same arguments as validate method. But note, this method ignores all async validations you have.
 
+Defining validation schema without decorators
+You can define your validation schemas without decorators:
+
+you can define it in the separate object
+you can define it in the .json file
+This feature maybe useful in the cases if:
+
+are using es5/es6 and don't have decorators available
+you don't have a classes, and instead using interfaces
+you don't want to use model at all
+you want to have a validation schema separate of your model
+you want beautiful json-schema based validation models
+you simply hate decorators
+Here is an example of using it:
+
+# Create a schema object:
+
+import { ValidationSchema } from 'class-validator';
+export let UserValidationSchema: ValidationSchema = {
+  // using interface here is not required, its just for type-safety
+  name: 'myUserSchema', // this is required, and must be unique
+  properties: {
+    firstName: [
+      {
+        type: 'minLength', // validation type. All validation types are listed in ValidationTypes class.
+        constraints: [2],
+      },
+      {
+        type: 'maxLength',
+        constraints: [20],
+      },
+    ],
+    lastName: [
+      {
+        type: 'minLength',
+        constraints: [2],
+      },
+      {
+        type: 'maxLength',
+        constraints: [20],
+      },
+    ],
+    email: [
+      {
+        type: 'isEmail',
+      },
+    ],
+  },
+};
+Same schema can be provided in .json file, depend on your wish.
+
+# Register your schema:
+
+import { registerSchema } from 'class-validator';
+import { UserValidationSchema } from './UserValidationSchema';
+registerSchema(UserValidationSchema); // if schema is in .json file, then you can simply do registerSchema(require("path-to-schema.json"));
+Better to put this code in a global place, maybe when you bootstrap your application, for example in app.ts.
+
+# Validate your object using validation schema:
+
+import { validate } from 'class-validator';
+const user = { firstName: 'Johny', secondName: 'Cage', email: 'johny@cage.com' };
+validate('myUserSchema', user).then(errors => {
+  if (errors.length > 0) {
+    console.log('Validation failed: ', errors);
+  } else {
+    console.log('Validation succeed.');
+  }
+});
+That's it. Here "myUserSchema" is the name of our validation schema. validate method will perform validation based on this schema
+
 # Manual validation
 There are several method exist in the Validator that allows to perform non-decorator based validation:
 
